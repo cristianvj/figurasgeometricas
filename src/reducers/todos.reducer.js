@@ -25,10 +25,7 @@ const reducer = (state, action) => {
         todo.id === action.id ? {...todo, task: action.task} : todo  
       );
 
-    case SEARCH_TODO:
-      return state.filter(todo => todo.lowerCase().includes(action.task.lowerCase()))
-    
-      default:
+    default:
       return state;
   }
 };
