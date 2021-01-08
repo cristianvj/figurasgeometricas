@@ -3,7 +3,8 @@ import {
   ADD_TODO, 
   REMOVE_TODO, 
   TOGGLE_TODO, 
-  EDIT_TODO
+  EDIT_TODO,
+  SEARCH_TODO
 } from '../constants/actions';
 
 const reducer = (state, action) => {
@@ -20,6 +21,8 @@ const reducer = (state, action) => {
       return state.map(todo =>
         todo.id === action.id ? {...todo, task: action.task} : todo  
       );
+    case SEARCH_TODO:
+      return state.filter(todo => todo.lowerCase().includes(action.task.lowerCase()))
     default:
       return state;
   }
