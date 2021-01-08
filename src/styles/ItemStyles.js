@@ -2,7 +2,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles({
-  Todo: {
+  item: {
     width: '100%',
     height: '2.5rem',
     display: 'flex',

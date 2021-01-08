@@ -1,29 +1,34 @@
 import { v4 as uuidv4 } from 'uuid';
 import {
-  ADD_TODO, 
-  REMOVE_TODO, 
-  TOGGLE_TODO, 
-  EDIT_TODO,
-  SEARCH_TODO
+  ADD_FIGURE, 
+  REMOVE_FIGURE, 
+  TOGGLE_FIGURE, 
+  EDIT_FIGURE
 } from '../constants/actions';
 
 const reducer = (state, action) => {
   switch (action.type){
-    case ADD_TODO :
+
+    case ADD_FIGURE:
       return [...state, {id: uuidv4(), task: action.task, completed: false}];
-    case REMOVE_TODO :
+    
+      case REMOVE_FIGURE:
       return state.filter(todo => todo.id !== action.id);
-    case TOGGLE_TODO :
+
+    case TOGGLE_FIGURE:
       return state.map(todo=>
           todo.id === action.id ? {...todo, completed: !todo.completed} : todo
         );
-    case EDIT_TODO :
+
+    case EDIT_FIGURE:
       return state.map(todo =>
         todo.id === action.id ? {...todo, task: action.task} : todo  
       );
+
     case SEARCH_TODO:
       return state.filter(todo => todo.lowerCase().includes(action.task.lowerCase()))
-    default:
+    
+      default:
       return state;
   }
 };

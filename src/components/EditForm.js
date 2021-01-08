@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { DispatchContext } from '../contexts/todos.context';
 import useInputState from '../hooks/useInputState';
-import useStyles from '../styles/EditTodoFormStyles.js';
-import { EDIT_TODO } from '../constants/actions';
+import useStyles from '../styles/EditFormStyles.js';
+import { EDIT_FIGURE } from '../constants/actions';
 
-function EditTodoForm({ id, task, toggleEditForm }) {
+function EditForm({ id, task, toggleEditForm }) {
   const classes = useStyles();
   const dispatch = useContext(DispatchContext);
   const [value, handleChange, clearValue] = useInputState(task);
@@ -13,11 +13,11 @@ function EditTodoForm({ id, task, toggleEditForm }) {
     <form
       onSubmit={e => {
         e.preventDefault();
-        dispatch({ type: EDIT_TODO, id, task: value });
+        dispatch({ type: EDIT_FIGURE, id, task: value });
         toggleEditForm();
         clearValue();
       }}
-      className={classes.EditTodoForm}
+      className={classes.EditForm}
     >
       <input
         autoFocus
@@ -30,4 +30,4 @@ function EditTodoForm({ id, task, toggleEditForm }) {
   );
 }
 
-export default EditTodoForm;
+export default EditForm;

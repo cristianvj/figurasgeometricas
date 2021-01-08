@@ -1,19 +1,19 @@
 import React, {useContext, useState} from 'react';
 import {TodosContext} from '../contexts/todos.context';
-import Todo from './Todo';
+import Item from './Item';
 
-import useStylesList from '../styles/TodoListStyle';
-import useStyles from '../styles/TodoFormStyles';
+import useStylesList from '../styles/ListStyle';
+import useStyles from '../styles/FormStyles';
 
 
-function TodoList() {
+function List() {
   const [value, setValue] = useState('')
   const todos = useContext(TodosContext);
   const classes = useStyles();
   const classesList = useStylesList();
 
   return (
-    <div className={classesList.TodoList}>
+    <div className={classesList.List}>
       <form
         onSubmit={e=>{
           e.preventDefault();
@@ -31,7 +31,7 @@ function TodoList() {
       <ul style={{ paddingLeft: 10, width: '95%' }}>
         {
           todos.filter(todo=>todo.task.toLowerCase().includes(value.toLowerCase())).map(todo=>(
-            <Todo key={todo.id} {...todo} />
+            <Item key={todo.id} {...todo} />
           ))
         }
       </ul>
@@ -39,4 +39,4 @@ function TodoList() {
   )
 }
 
-export default TodoList
+export default List

@@ -1,11 +1,11 @@
 import React, { useContext, memo } from 'react';
 import { DispatchContext } from '../contexts/todos.context';
-import EditTodoForm from './EditTodoForm';
+import EditForm from './EditForm';
 import useToggleState from '../hooks/useToggleState';
-import useStyles from '../styles/TodoStyles.js';
-import { REMOVE_TODO, TOGGLE_TODO } from '../constants/actions';
+import useStyles from '../styles/ItemStyles.js';
+import { REMOVE_FIGURE, TOGGLE_FIGURE } from '../constants/actions';
 
-function Todo({ id, task, completed }) {
+function Item({ id, task, completed }) {
   const classes = useStyles();
   const dispatch = useContext(DispatchContext);
   const [isEditing, toggle] = useToggleState(false);
@@ -13,19 +13,19 @@ function Todo({ id, task, completed }) {
   if (isEditing) {
     return (
       <li
-        className={classes.Todo}
+        className={classes.item}
         style={{ overflowY: 'hidden' }}
         onClick={() => toggle()}
       >
-        <EditTodoForm id={id} task={task} toggleEditForm={toggle} />
+        <EditForm id={id} task={task} toggleEditForm={toggle} />
       </li>
     );
   }
 
   return (
     <li
-      className={classes.Todo}
-      onClick={() => dispatch({ type: TOGGLE_TODO, id })}
+      className={classes.item}
+      onClick={() => dispatch({ type: TOGGLE_FIGURE, id })}
     >
       <span
         style={{
@@ -41,7 +41,7 @@ function Todo({ id, task, completed }) {
           className="fas fa-trash"
           onClick={e => {
             e.stopPropagation();
-            dispatch({ type: REMOVE_TODO, id });
+            dispatch({ type: REMOVE_FIGURE, id });
           }}
         />
         <i
@@ -57,4 +57,4 @@ function Todo({ id, task, completed }) {
   );
 }
 
-export default memo(Todo);
+export default memo(Item);

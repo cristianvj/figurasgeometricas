@@ -1,10 +1,10 @@
 import React, {useContext} from 'react'
 import { DispatchContext } from '../contexts/todos.context';
 import useInputState from '../hooks/useInputState';
-import useStyles from '../styles/TodoFormStyles';
-import { ADD_TODO, REMOVE_TODO, TOGGLE_TODO } from '../constants/actions';
+import useStyles from '../styles/FormStyles';
+import { ADD_FIGURE } from '../constants/actions';
 
-function TodoForm() {
+function AddForm() {
   const classes = useStyles();
   const dispatch = useContext(DispatchContext);
   const [value, handleChange, reset] = useInputState('');
@@ -13,10 +13,10 @@ function TodoForm() {
     <form
       onSubmit={e=>{
         e.preventDefault();
-        dispatch({type: ADD_TODO, task: value});
+        dispatch({type: ADD_FIGURE, task: value});
         reset();
       }}
-      className={classes.TodoForm}
+      className={classes.Form}
     >
     <input
       placeholder='+ Agrega una figura geometrica'
@@ -28,4 +28,4 @@ function TodoForm() {
   )
 }
 
-export default TodoForm;
+export default AddForm;

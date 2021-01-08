@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles({
-  EditTodoForm: {
+  EditForm: {
     width: '100%',
     marginBottom: '1rem'
   },

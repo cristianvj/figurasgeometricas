@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from '../styles/AppStyles';
-import TodoApp from './TodoApp';
+import ListApp from './ListApp';
 
 const App = () => {
   const classes = useStyles();
@@ -12,7 +12,7 @@ const App = () => {
           <span>Figuras Geometricas</span>
         </h1>
         <h2>Lista de figuras geometricas usando React Hooks y Context</h2>
-        <TodoApp/>
+        <ListApp/>
       </header>
     </div>
   );
