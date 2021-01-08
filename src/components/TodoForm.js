@@ -19,7 +19,7 @@ function TodoForm() {
       className={classes.TodoForm}
     >
     <input
-      placeholder='Add your task here...'
+      placeholder='+ Agrega una figura geometrica'
       value={value}
       onChange={handleChange}
       className={classes.input}

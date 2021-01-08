@@ -6,12 +6,12 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.body}>
       <header className={classes.header}>
         <h1>
-          todo<span>list</span>
+          <span>Figuras Geometricas</span>
         </h1>
-        <h2>A simple todolist app built with React Hooks & Context</h2>
+        <h2>Lista de figuras geometricas usando React Hooks y Context</h2>
         <TodoApp/>
       </header>
     </div>

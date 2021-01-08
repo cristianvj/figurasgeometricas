@@ -15,7 +15,7 @@ export default makeStyles({
     overflowX: 'hidden',
     transition: 'all 0.3s ease',
     '&:hover': {
-      background: 'rgba(0, 0, 0, 0.03)',
+      background: '#abb1b3',
       cursor: 'pointer'
     },
     '&:hover div': {
@@ -29,7 +29,5 @@ export default makeStyles({
     justifyContent: 'space-between',
     marginRight: '1rem',
     float: 'right',
-    transition: 'all 0.3s',
-    opacity: '0'
   }
 });

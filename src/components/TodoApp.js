@@ -6,8 +6,8 @@ import TodoList from './TodoList';
 function TodoApp() {
   return (
     <TodosProvider>
-      <TodoForm/>
       <TodoList/>
+      <TodoForm/>
     </TodosProvider>
   )
 }

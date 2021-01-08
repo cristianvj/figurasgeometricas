@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {TodosContext} from '../contexts/todos.context';
 import Todo from './Todo';
 
+import useStylesList from '../styles/TodoListStyle';
 import useStyles from '../styles/TodoFormStyles';
 
 
@@ -9,17 +10,18 @@ function TodoList() {
   const [value, setValue] = useState('')
   const todos = useContext(TodosContext);
   const classes = useStyles();
+  const classesList = useStylesList();
 
   return (
-    <>
+    <div className={classesList.TodoList}>
       <form
         onSubmit={e=>{
           e.preventDefault();
         }}
-        className={classes.TodoForm}
+        
       >
       <input
-        placeholder='Filter'
+        placeholder='- Buscar Figura en la lista'
         value={value}
         onChange={e=>setValue(e.target.value)}
         className={classes.input}
@@ -33,7 +35,7 @@ function TodoList() {
           ))
         }
       </ul>
-    </>
+    </div>
   )
 }
 

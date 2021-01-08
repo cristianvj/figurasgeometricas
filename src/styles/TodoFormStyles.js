@@ -14,6 +14,7 @@ export default makeStyles({
     color: '#34495e',
     fontSize: '1.2rem',
     fontWeight: '300',
-    outline: 'none'
+    outline: 'none',
+    textAlign: 'center',
   }
 });
